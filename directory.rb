@@ -1,12 +1,19 @@
+#student_count = 4
 puts
-puts "All the students in the class"
-puts "======"
-puts "Peter"
-puts "Paul"
-puts "Simon"
-puts "Anothony"
-puts
+# lets put students into an array
+students = [
+"Peter",
+"Paul",
+"Simon",
+"Anthony"
+]
+#and then print them
+puts "The students in my cohort at makers are:"
+puts "----------"
+
+students.each do |student|
+	puts student
+	end
+
 #adding a total
-print "Overall we have\n4\ngreat students\n"
-#print 4
-#print "students"
+puts "\nOverall we have #{students.length} students\n"
