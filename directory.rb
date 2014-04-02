@@ -2,18 +2,28 @@
 puts
 # lets put students into an array
 students = [
-"Peter",
-"Paul",
-"Simon",
-"Anthony"
+{:name => "Peter",:cohort => :Mar},
+{:name => "Paul", :cohort => :Mar},
+{:name => "Simon",:cohort => :Mar},
+{:name => "Anthony",:cohort => :Mar},
 ]
-#and then print them
-puts "The students in my cohort at makers are:"
-puts "----------"
 
-students.each do |student|
-	puts student
+def print_header
+	puts "The students of my cohort at Makers"
+	puts "---------"
+end
+
+def print(student)
+	student.each do |student|
+		puts "#{student[:name]} (#{student[:cohort]} cohort)"
 	end
+end
 
-#adding a total
-puts "\nOverall we have #{students.length} students\n"
+def print_footer(names)
+puts "Overall we have #{names.length} students"
+end
+
+#and calling the methods
+print_header
+print(students)
+print_footer(students)
