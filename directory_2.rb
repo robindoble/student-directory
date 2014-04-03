@@ -5,8 +5,8 @@ def student_header
 end
 
 student_list_fixed = [{:name => "Adam",:cohort => :May},{:name => "Anthony",:cohort => :May},{:name => "Peter",:cohort => :May},
-	{:name => "Robin",:cohort => :May},{:name => "Bethsheeba",:cohort => :May},{:name => "MarcusAnthony",:cohort => :May}]
-
+	{:name => "Robin",:cohort => :May},{:name => "Bethsheeba",:cohort => :Feb},{:name => "MarcusAnthony",:cohort => :Feb},
+	{:name => "Sarah-Ann",:cohort => :Feb}]
 
 # def student_list
 # 	students=[]
