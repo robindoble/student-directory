@@ -21,13 +21,13 @@ def input_students
 	#while the name is not empty prompt for other info and repeat proccess
 	while !name.empty? do
 		#prompt for email
-		puts "Please enter the email of the students(s)"
-		email=gets.chomp
-		#prompt for skype_id
-		puts "Please enter the skype_id of the students(s)"
-		skype_id=gets.chomp
-		# add the student data hash to the array
-		students << {name: name, email: email, skype_id: skype_id}
+		# puts "Please enter the email of the students(s)"
+		# email=gets.chomp
+		# #prompt for skype_id
+		# puts "Please enter the skype_id of the students(s)"
+		# skype_id=gets.chomp
+		# # add the student data hash to the array
+		students << {name: name, email: "email@gmail.com", skype_id: "skype_id"}
 		puts "Now we have #{students.length} students"
 		# get another name from the user
 		puts "Please enter the next name of the students(s), or hit enter to finish"		
@@ -37,38 +37,45 @@ def input_students
 	students
 end
 
-# def print_list(people)
-# 	i = 0
-# 	while (i < people.length)
-# 		puts "#{i + 1}. #{people[i][:name]} (#{people[i][:cohort]} cohort)"
-# 		i += 1
-# 		end
-# end
 	
-def print1(student)
-	i = 0
+def print(student)
+		i = 0
 		student.each do |element|
 		puts "#{i += 1}. #{element[:name]}, #{element[:email]}, #{element[:skype_id]}"
 		end
 end
 
-# if person[:name].chars.first == "A"
-		# if person[:name].length < 12
-		
-
-# below is an alternative method using with_index to number each student
-# def print_list(people)
-# 	people.each_with_index do |person, index|
-# 		puts "#{index+1}. #{person[:name]} (#{person[:cohort]} cohort)"
-# 	end
-# end
 
 def print_footer(student)
-	puts "Overall, we have #{student.length} great students"
+	puts "Overall, we have #{student.length} great student(s)"
 end
 
-# nothing happens until we call the methods:
-students = input_students
-print_header
-print1(students)
-print_footer(students)
+def interactive_menu
+		students = []
+	loop do
+		#1. print menu and ask user what to do
+			puts "1. Input the students"
+			puts "2. Show the students"
+			puts "9. Exit"
+		#2. read input and assign to a variable
+			selection = gets.chomp
+		#3. do what user has asked
+			case selection
+			when "1"
+			#input students
+			students = input_students
+			when "2"
+			#show students
+			print_header
+			print(students)
+			print_footer(students)
+			when "9"
+			exit #will exit the program
+			else 
+			puts "I don't know what you mean, please try again"
+			end
+	end
+end
+
+2
+interactive_menu
