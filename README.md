@@ -1,9 +1,5 @@
-Student Direc
+Student Directory
 ===========
-Managers list of students
+This project enables management of the list of students at Makers Academy
 
-How to us
------------
-```shell
-ruby directory.rb
-```
+most relevant programme file is directory.rb
