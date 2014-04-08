@@ -16,6 +16,7 @@ end
 #now includes other student attributes of name, email and skype id
 def input_students
 	puts "Please enter the first name of the students(s)"
+	puts "-----------"
 	#get the first name
 	name = gets.chomp
 	#while the name is not empty prompt for other info and repeat proccess
@@ -46,14 +47,15 @@ def print_students_list
 		end
 end
 
-
 def print_footer
+	puts "-----------"
 	puts "Overall, we have #{@students.length} great student(s)"
 end
 
 def print_menu
 	puts "1. Input the students"
 	puts "2. Show the students"
+	puts "3. Save the list to file"
 	puts "9. Exit"
 end
 
@@ -61,31 +63,6 @@ def show_students
 	print_header
 	print_students_list
 	print_footer
-end
-
-def process(selection)
-	case selection
-	when "1"
-	#input students
-	@students = input_students
-	when "2"
-	#show students
-	show_students
-	when "9"
-	exit #will exit the program
-	else 
-	puts "I don't know what you mean, please try again"
-	end
-end
-
-def interactive_menu
-		# students = []
-	loop do
-		#1. print menu and ask user what to do
-			print_menu
-		#2. take user selection and run method process 
-			process(gets.chomp)
-	end
 end
 
 def save_students
@@ -100,5 +77,35 @@ def save_students
 	file.close
 end
 
+def process(selection)
+	case selection
+	when "1"
+	#input students
+	@students = input_students
+	when "2"
+	#show students
+	show_students
+	when "3"
+	#save students to file
+	save_students
+	
+	when "9"
+	exit #will exit the program
+	else 
+	puts "I don't know what you mean, please try again"
+	end
+end
+
+def interactive_menu
+		# students = []
+	loop do
+		#1. print menu and ask user what to do
+			puts "-----------"
+			puts "Please make another selection\n"
+			print_menu
+		#2. take user selection and run method process 
+			process(gets.chomp)
+	end
+end
 
 interactive_menu
