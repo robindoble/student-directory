@@ -56,6 +56,7 @@ def print_menu
 	puts "1. Input the students"
 	puts "2. Show the students"
 	puts "3. Save the list to file"
+	puts "4. Load the list from file"
 	puts "9. Exit"
 end
 
@@ -77,6 +78,37 @@ def save_students
 	file.close
 end
 
+def load_students
+	file = File.open("students.csv","r")
+	# puts file.class
+	# puts file.readlines.length
+	# # puts file.read()
+	i=1
+	var =file.readlines
+	@students = []
+	while i < var.length do
+		#file.readlines.each do |line|
+		name, email, skype_id = var[i].split(',')
+		@students << {name: name, email: email, skype_id: skype_id}
+	i+=1
+	end
+	file.close
+	return @students
+end
+
+def load_students2
+	@file = File.open("students.csv","r")
+	@file.readlines.each do |line|
+	# file.readlines.each do |line|
+		name, email, skype_id = line.chomp.split(',')
+		@students << {name: name, email: email, skype_id: skype_id}
+	end
+	@file.close
+	length=@students.length
+	@students=@students[1..(length-1)]
+	return @students
+end
+
 def process(selection)
 	case selection
 	when "1"
@@ -88,7 +120,9 @@ def process(selection)
 	when "3"
 	#save students to file
 	save_students
-	
+	when "4"
+	#load students from file
+	load_students
 	when "9"
 	exit #will exit the program
 	else 
