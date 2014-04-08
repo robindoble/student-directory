@@ -34,6 +34,7 @@ def input_students
 		name = gets.chomp
 	end
 	# return the array of students
+	save_students
 	@students
 end
 
@@ -86,5 +87,18 @@ def interactive_menu
 			process(gets.chomp)
 	end
 end
+
+def save_students
+	#open the file for writing
+	file = File.open("students1.csv","a")
+	#iterate over the array of students
+	@students.each do |student|
+		student_data = [student[:name],student[:email],student[:skype_id]]
+		csv_line=student_data.join(",")
+		file.puts csv_line 
+	end
+	file.close
+end
+
 
 interactive_menu
