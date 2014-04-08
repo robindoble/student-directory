@@ -67,7 +67,7 @@ end
 
 def save_students
 	#open the file for writing
-	file = File.open("students1.csv","a")
+	file = File.open("students.csv","a")
 	#iterate over the array of students
 	@students.each do |student|
 		student_data = [student[:name],student[:email],student[:skype_id]]
